@@ -2,20 +2,20 @@ import React from 'react';
 import Board from './Board.js';
 
 /*
-React.Compnent
+React.Component
 tells react which component to render when data changes
 aka React component class/type
 
 properties: 
 1. props (parameters)
-2. state - should be private to the compenent 
+2. state - should be private to the component 
 when this.setState is called,
-component update is scheduled, react merges in the passed state update, rerenders the componenet and its descendents
+component update is scheduled, react merges in the passed state update, re-renders the component and its descendants
 best practice - store states in the parent components. 
 parents can pass the states down to children components via props
-parent and childen components are always in sync
-pull the states upwards (mainly how React is refactored)
-whenever the parent's state updates, child components are rerednered automatically 
+parent and children components are always in sync
+pull the states upwards (mainly how React is re-factored)
+whenever the parent's state updates, child components are re-rendered automatically 
 Controlled Components -> when a component receives its value from the parent and informs its parent when it's clicked
 
 render() 
@@ -25,15 +25,15 @@ render()
 
 React elements are REAL JS Objects that can be stored in a variable or passed around
 
-Can render built-in DOM compnents or custom react compenents by using <ClassName />
-compnents are encapsulated -> operates independently
+Can render built-in DOM components or custom react components by using <ClassName />
+components are encapsulated -> operates independently
 
-Tracking changes are easier done when objects are immutable, therefore determining rerending requirement
+Tracking changes are easier done when objects are immutable, therefore determining re-rendering requirement
 benefits when building PURE COMPONENTS
 */
 export default class Game extends React.Component {
   constructor(props) {
-    super(props); // always required to explictly call super() when defining a constructor of a subclass
+    super(props); // always required to explicitly call super() when defining a constructor of a subclass
     this.state = { // initial state set up
       history: [{
         squares: Array(9).fill(null),
@@ -106,12 +106,6 @@ export default class Game extends React.Component {
       );
     });
 
-    const reverse = (() => {
-          this.setState({
-            history: this.state.history.reverse(),
-          });
-    });
-
     return (
       <div className="game">
         <div className="game-board">
@@ -124,7 +118,6 @@ export default class Game extends React.Component {
         <div className="game-info">
           <div>{status}</div>
           <ol>{moves}</ol> {/* shows the buttons */}
-          <button onClick={reverse}>Reverse</button>
         </div>
       </div>
     );
